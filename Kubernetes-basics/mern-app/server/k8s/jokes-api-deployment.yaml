@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jokes-api-deployment
+spec: 
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jokes-api
+  template:
+    metadata:
+      labels:
+        app: jokes-api
+    spec:
+      containers:
+        - name: jokes-api-container
+          image: prodanish203/jokes-api
+          ports:
+            - containerPort: 8000
+          env:
+            - name: MONGO_URI
+              valueFrom:
+                secretKeyRef:
+                  name: jokes-api-secret
+                  key: MONGO_URI
+            - name: PORT
+              valueFrom:
+                secretKeyRef:
+                  name: jokes-api-secret
+                  key: PORT

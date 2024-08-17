@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jokes-client-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jokes-client
+  template:
+    metadata:
+      labels:
+        app: jokes-client
+    spec:
+      containers:
+        - name: jokes-client-container
+          image: prodanish203/jokes-client
+          ports:
+            - containerPort: 3000
+          env:
+            - name: NEXT_PUBLIC_API_URL
+              valueFrom:
+                secretKeyRef:
+                  name: jokes-client-secret
+                  key: NEXT_PUBLIC_API_URL
