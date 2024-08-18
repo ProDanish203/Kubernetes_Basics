@@ -1,7 +1,9 @@
 # Kubernetes - MERN stack deployment
 
 ## Getting Started
+
 Common terminologies in Kubernetes:
+
 - Pods: Smallest deployable units in Kubernetes
 - Services: Expose applications running on Pods
 - Deployment: Manage Pods and ReplicaSets
@@ -9,6 +11,7 @@ Common terminologies in Kubernetes:
 - ConfigMap: Store configuration data
 
 ### Some common commands
+
 ```
 kubectl get pods
 kubectl get pods -o wide
@@ -26,7 +29,7 @@ kubectl delete -f [directory]
 # To remove files
 kubectl delete pods --all
 kubectl delete deployment [name]
-kubectl delete service [name] 
+kubectl delete service [name]
 kubectl delete secret [name]
 kubectl delete configmap [name]
 
@@ -34,10 +37,11 @@ minikube ip
 minikube service [service_name]
 ```
 
-
 ### Kubernetes Dashboard
+
 - Create a file dashboard.yaml and run it using `kubectl apply -f dashboard.yaml`
 - Create a sample user
+
 ```
 apiVersion: v1
 kind: ServiceAccount
@@ -64,6 +68,7 @@ subjects:
 ```
 
 ### To run dashboard
+
 ```
 # without minikube
 kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy 8443:443
@@ -91,7 +96,9 @@ http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kube
 - To overcome this downtime we use Deployment Object
 
 # Nodejs Example:
+
 ## Service file
+
 ```
 apiVersion: v1
 kind: Service
@@ -107,12 +114,13 @@ spec:
 ```
 
 ## Deployment file
+
 ```
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: jokes-api-deployment
-spec: 
+spec:
   replicas: 3
   selector:
     matchLabels:
@@ -139,7 +147,9 @@ spec:
                   name: jokes-api-secret
                   key: PORT
 ```
+
 ## Secrets file
+
 ```
 apiVersion: v1
 kind: Secret
@@ -150,3 +160,13 @@ data:
   MONGO_URI: bW9uZ29kYjovL21vbm9nZGItc2VydmljZS9rOHMtam9rZXM=
   PORT: ODAwMA==
 ```
+
+### PersistentStorage and PersistentStorageClaim
+
+- Purpose: Provides durable storage that survives pod restarts or rescheduling, essential for stateful applications and data persistence.
+- Key Concepts: PersistentVolume (PV) is a piece of storage in the cluster, while PersistentVolumeClaim (PVC) is a request for storage by a user.
+- How it works: Admins create PVs, users create PVCs to request storage, and Kubernetes binds PVC to a suitable PV.
+- Benefits: Decouples storage provisioning from pod lifecycle, allows for different storage classes, and supports dynamic provisioning in cloud environments.
+- Use cases: Ideal for databases, file storage, and shared application data.
+- Storage Classes: Define different types of storage with varying performance characteristics, enabling automatic provisioning of PVs.
+- Reclaim Policies: Include Retain (keep data when PVC is deleted), Delete (remove data when PVC is deleted), and Recycle (basic scrub and make available again).
