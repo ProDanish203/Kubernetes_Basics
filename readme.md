@@ -374,7 +374,7 @@ kubectl get pod -n ingress-nginx
 - **Organize Resources**: Namespaces help in organizing resources logically, making it easier to manage applications and services. For example, you can group resources related to databases, monitoring tools, the Elastic Stack, and Nginx Ingress under specific namespaces.
 - **Virtual Clusters**: Namespaces act as virtual clusters inside a physical cluster, allowing multiple teams to work independently without interfering with each other's resources.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0af471d0-005b-40a0-88d4-284d31abeeae/a5230200-283d-435c-8c2b-c5c75376d06e/image.png)
+![namespaces](https://github.com/user-attachments/assets/7128c49c-4a12-4a10-b9d2-f3db0e3e2b21)
 
 ### **Default Namespaces in Kubernetes**
 
@@ -411,7 +411,8 @@ namespaces help avoid resource conflicts by allowing each team to operate within
 - **Isolation**: Most resources in Kubernetes cannot be accessed across namespaces. Each namespace must define its own ConfigMap, Secrets, and other resources.
 - **Global Resources**: Some components, such as Volumes and Nodes, exist outside of namespaces and are global within the cluster. They cannot be isolated within a namespace.
 
-![image.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/0af471d0-005b-40a0-88d4-284d31abeeae/6fe0a37e-b06e-44bb-8517-30472ac5020a/image.png)
+![namespace-characteristics](https://github.com/user-attachments/assets/ac1f3cc6-8e4d-4e8e-966f-3f5cba2b375c)
+
 
 ### **Example of Creating a ConfigMap in a Namespace**
 
@@ -441,7 +442,7 @@ Ingress is a powerful resource in Kubernetes that manages external access to ser
 - **No Open IP Address or Port**: Ingress allows you to expose your services without opening specific IP addresses or ports directly. Instead, it routes incoming requests to internal services based on defined rules.
 - **Traffic Routing**: Incoming requests are forwarded to the appropriate internal service based on the specified rules, enabling flexible routing configurations.
 
-![kubernetes ingress.jpg](https://prod-files-secure.s3.us-west-2.amazonaws.com/0af471d0-005b-40a0-88d4-284d31abeeae/efe65bad-ac1e-4376-a044-edc070389cb7/kubernetes_ingress.jpg)
+![ingress](https://github.com/user-attachments/assets/b2fc2eee-713f-4cad-a6f2-1c5715ad3b33)
 
 ## Example Ingress Resource
 
