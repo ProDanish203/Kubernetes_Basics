@@ -202,12 +202,16 @@ kubectl delete configmap [name]
 kubectl logs [pod_name]
 kubectl get pods --namespace=kube-system
 
+# To check the status of rolling updates
+kubectl rollout status deployment [deployment_name]
+
 minikube start --driver=hyperv
 minikube status 
 minikube help
 minikube ip
 minikube service [service_name]
 minikube dashboard # open dashboard
+minikube service [service_name]
 
 kubectl cluster-info
 # SSH into Kubernetes node
