@@ -200,9 +200,20 @@ kubectl delete secret [name]
 kubectl delete configmap [name]
 
 kubectl logs [pod_name]
+kubectl get pods --namespace=kube-system
 
+minikube start --driver=hyperv
+minikube status 
+minikube help
 minikube ip
 minikube service [service_name]
+minikube dashboard # open dashboard
+
+kubectl cluster-info
+# SSH into Kubernetes node
+minikube ssh
+ssh docker@IP-Address-Of-Minikube
+default password: tcuser 
 
 ```
 
@@ -340,9 +351,7 @@ kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy
 https://localhost:8443/
 
 # With minikube
-kubectl proxy
-
-http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+minikube dashboard
 ```
 
 - Create a Bearer token with: `kubectl -n kubernetes-dashboard create token admin-user` and paste the token in dashbooard
