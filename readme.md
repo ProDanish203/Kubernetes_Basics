@@ -519,6 +519,8 @@ Ingress is a vital component in Kubernetes for managing external access to servi
 - Helm acts as a **templating engine**, enabling users to define complex Kubernetes applications with customizable configurations.
 - It facilitates **release management**, allowing users to install, upgrade, and roll back applications easily.
 
+![helm](https://github.com/user-attachments/assets/6e8a5057-4191-490d-89ac-f4faea282009)
+
 ### What are Helm Charts ?
 
 - **Helm Charts** are bundles of YAML files that define the resources needed to deploy an application on Kubernetes. Each chart contains all the necessary configuration files, including deployments, services, secrets, and config maps.
@@ -548,11 +550,6 @@ mychart/         # Folder name of the chart
 	values.yaml    # Default values for the templates
 	charts/        # Folder for chart dependencies
 	templates/     # Directory containing the actual template files
-
-# commands
-helm install [chart_name]
-helm upgrade [chart_name]
-helm rollback [chart_name]
 ```
 
 ### Common Helm commands
@@ -568,6 +565,8 @@ Helm is an essential tool for managing Kubernetes applications, providing a stre
 ## Data Persistence In Kubernetes
 
 In Kubernetes, a **volume** is a directory accessible to containers within a pod. Volumes provide a way to persist data beyond the lifecycle of a container or pod. These volumes are essential for data persistence in Kubernetes.
+
+![pvc](https://github.com/user-attachments/assets/89430ee5-4261-49f1-9136-bd6e41f6c845)
 
 ### Need for volume:
 
